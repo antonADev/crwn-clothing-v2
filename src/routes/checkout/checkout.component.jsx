@@ -14,9 +14,16 @@ import {
   Total,
 } from './checkout.styles';
 
+// IMPORTED TO REVERSE REDUX TO CONTEXT
+import { useContext } from 'react';
+import { CartContext } from '../../contexts/cart.context';
+
 const Checkout = () => {
-  const cartItems = useSelector(selectCartItems);
-  const cartTotal = useSelector(selectCartTotal);
+  // COMMENTED OUT TO REVERSE REDUX TO CONTEXT
+  // const cartItems = useSelector(selectCartItems);
+  // const cartTotal = useSelector(selectCartTotal);
+
+  const { cartItems, cartTotal } = useContext(CartContext);
   return (
     <CheckoutContainer>
       <CheckoutHeader>

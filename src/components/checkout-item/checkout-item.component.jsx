@@ -19,19 +19,38 @@ import {
   RemoveButton,
 } from './checkout-item.styles.jsx';
 
+// IMPORTED TO REVERSE REDUX TO CONTEXT
+import { useContext } from 'react';
+import { CartContext } from '../../contexts/cart.context.jsx';
+
 const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
 
-  const cartItems = useSelector(selectCartItems);
-  const dispatch = useDispatch();
+  // COMMENTED OUT TO REVERSE REDUX TO CONTEXT
+  // const cartItems = useSelector(selectCartItems);
+  // const dispatch = useDispatch();
 
-  const clearItemHandler = () =>
-    dispatch(clearItemFromCart(cartItems, cartItem));
+  // const clearItemHandler = () =>
+  //   dispatch(clearItemFromCart(cartItems, cartItem));
 
-  const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem));
+  // const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem));
 
-  const removeItemHandler = () =>
-    dispatch(removeItemFromCart(cartItems, cartItem));
+  // const removeItemHandler = () =>
+  //   dispatch(removeItemFromCart(cartItems, cartItem));
+
+  const { addItemToCart, removeItemFromCart, clearItemFromCart } =
+    useContext(CartContext);
+
+  const clearItemHandler = () => {
+    clearItemFromCart(cartItem);
+  };
+
+  const removeItemHandler = () => {
+    removeItemFromCart(cartItem);
+  };
+  const addItemHandler = () => {
+    addItemToCart(cartItem);
+  };
 
   return (
     <CheckoutItemContainer>

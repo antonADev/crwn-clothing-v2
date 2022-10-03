@@ -20,9 +20,18 @@ import {
   LogoContainer,
 } from './navigation.styles.jsx';
 
+// IMPORTED FOR REVERSING REDUX TO CONTEXT
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/user.context';
+import { CartContext } from '../../contexts/cart.context';
+
 const Navigation = () => {
-  const currentUser = useSelector(selectCurrentUser);
-  const isCartOpen = useSelector(selectIsCartOpen);
+  // COMMENTED OUT FOR REVERSING REDUX TO CONTEXT
+  // const currentUser = useSelector(selectCurrentUser);
+  // const isCartOpen = useSelector(selectIsCartOpen);
+
+  const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
   return (
     <Fragment>
       <NavigationContainer>

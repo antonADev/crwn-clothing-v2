@@ -7,14 +7,20 @@ import { selectCategoriesMap } from '../../store/categories/category.selector';
 
 import { CategoryContainer, CategoryTitle } from './category.styles';
 
+//IMPORTED TO REVERSE REDUX TO CONTEXT
+import { CategoriesContext } from '../../contexts/categories.context';
+import { useContext } from 'react';
 const Category = () => {
   const { category } = useParams();
-  const categoriesMap = useSelector(selectCategoriesMap);
-  const [products, setProducts] = useState(categoriesMap[category]);
+  // COMMENTED OUT TO REVERSE REDUX TO CONTEXT
+  // const categoriesMap = useSelector(selectCategoriesMap);
+  const { categories } = useContext(CategoriesContext);
+
+  const [products, setProducts] = useState(categories[category]);
 
   useEffect(() => {
-    setProducts(categoriesMap[category]);
-  }, [category, categoriesMap]);
+    setProducts(categories[category]);
+  }, [category, categories]);
 
   return (
     <Fragment>

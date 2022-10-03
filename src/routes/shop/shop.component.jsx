@@ -8,16 +8,17 @@ import Category from '../category/category.component';
 import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils';
 import { setCategories } from '../../store/categories/category.action';
 const Shop = () => {
-  const dispatch = useDispatch();
+  //COMMENTED OUT TO REVERSE REDUX TO CONTEXT
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoriesArray = await getCategoriesAndDocuments('categories');
-      dispatch(setCategories(categoriesArray));
-    };
+  // useEffect(() => {
+  //   const getCategoriesMap = async () => {
+  //     const categoriesArray = await getCategoriesAndDocuments('categories');
+  //     dispatch(setCategories(categoriesArray));
+  //   };
 
-    getCategoriesMap();
-  }, [dispatch]);
+  //   getCategoriesMap();
+  // }, [dispatch]);
 
   return (
     <Routes>

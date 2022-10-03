@@ -13,16 +13,19 @@ import {
   ItemCountStyle,
 } from './cart-icon.styles.jsx';
 
+// IMPORTED FOR REVERSING REDUX TO CONTEXT
+import { useContext } from 'react';
+import { CartContext } from '../../contexts/cart.context.jsx';
 const CartIcon = () => {
-  // const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
 
-  const cartCount = useSelector(selectCartCount);
-  const isCartOpen = useSelector(selectIsCartOpen);
-
-  const dispatch = useDispatch();
+  // COMMENTED OUT FOR REVERSING REDUX TO CONTEXT
+  // const cartCount = useSelector(selectCartCount);
+  // const isCartOpen = useSelector(selectIsCartOpen);
+  // const dispatch = useDispatch();
 
   const toggleIsCartOpen = () => {
-    dispatch(setIsCartOpen(!isCartOpen));
+    setIsCartOpen(!isCartOpen);
   };
   return (
     <CartIconContainer

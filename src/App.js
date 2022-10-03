@@ -15,17 +15,20 @@ import { setCurrentUser } from './store/user/user.action';
 import Checkout from './routes/checkout/checkout.component';
 
 const App = () => {
-  const dispatch = useDispatch();
+  // COMMENTED OUT FOR REVERSING REDUX TO CONTEXT
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-      dispatch(setCurrentUser(user));
-    });
-    return unsubscribe;
-  }, [dispatch]);
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChangedListener((user) => {
+  //     if (user) {
+  //       createUserDocumentFromAuth(user);
+  //     }
+  //     dispatch(setCurrentUser(user));
+  //   });
+
+  //   return unsubscribe;
+  // }, []);
+
   return (
     <Routes>
       <Route path='/' element={<Navigation />}>
