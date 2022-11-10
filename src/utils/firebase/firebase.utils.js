@@ -96,15 +96,16 @@ export const createUserDocumentFromAuth = async (
     } catch (error) {
       console.log('error creating the user', error.message);
     }
-    return userDocRef;
   }
-  //if user data does not exist
-  //create / set the document with the dara from userAuth in my collection
 
-  //if user data exists
-
-  //return userDocRef
+  return userSnapshot;
 };
+//if user data does not exist
+//create / set the document with the dara from userAuth in my collection
+
+//if user data exists
+
+//return userDocRef
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
